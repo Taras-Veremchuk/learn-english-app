@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/mentor-practice-react/static/css/main.233439f2.css",
-    "main.js": "/mentor-practice-react/static/js/main.a50e0572.js",
-    "index.html": "/mentor-practice-react/index.html",
-    "main.233439f2.css.map": "/mentor-practice-react/static/css/main.233439f2.css.map",
-    "main.a50e0572.js.map": "/mentor-practice-react/static/js/main.a50e0572.js.map"
+    "main.css": "/learn-english-app/static/css/main.233439f2.css",
+    "main.js": "/learn-english-app/static/js/main.a50e0572.js",
+    "index.html": "/learn-english-app/index.html",
+    "main.233439f2.css.map": "/learn-english-app/static/css/main.233439f2.css.map",
+    "main.a50e0572.js.map": "/learn-english-app/static/js/main.a50e0572.js.map"
   },
   "entrypoints": [
     "static/css/main.233439f2.css",
