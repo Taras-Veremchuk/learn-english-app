@@ -1,0 +1,15 @@
+.active {
+  font-size: 32px;
+  font-weight: 700;
+  color: brown;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.inActive {
+  font-size: 30px;
+  font-weight: 400;
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
