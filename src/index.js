@@ -8,7 +8,7 @@ import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="/learnEnglishWords-app">
+    <BrowserRouter basename="/learn-english-app">
       <Provider store={store}>
         <App />
       </Provider>

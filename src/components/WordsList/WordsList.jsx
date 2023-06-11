@@ -53,6 +53,7 @@ export default function WordsList({
         <tbody>
           {words.map(({ id, uaWord, enWord, checked }, index) => (
             <WordsListItem
+              key={id}
               id={id}
               uaWord={uaWord}
               enWord={enWord}
