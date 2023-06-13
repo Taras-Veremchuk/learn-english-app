@@ -4,15 +4,16 @@ import { Table, Th, Head, Wrapper } from './WordsList.styled';
 import WordsListItem from './WordsListItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchWords } from 'redux/operations';
-import { selectWords } from 'redux/selectors';
-export default function WordsList({
-  onFilterChange,
-  toggleChecked,
-  checkAllWords,
-  editWord,
-}) {
-  const dispatch = useDispatch();
+import { selectFilterValue, selectFilterdWords } from 'redux/selectors';
+import { setFilter } from 'redux/filterSlice';
 
+export default function WordsList() {
+  const dispatch = useDispatch();
+  const value = useSelector(selectFilterValue);
+  const filteredWords = useSelector(selectFilterdWords);
+  const handleFilterChange = event => {
+    dispatch(setFilter(event.target.value));
+  };
   useEffect(() => {
     dispatch(fetchWords());
   }, [dispatch]);
@@ -22,18 +23,18 @@ export default function WordsList({
   const handleCheckAll = () => {
     if (status === 'check') {
       setStatus('uncheck');
-      checkAllWords(status);
+      // checkAllWords(status);
       return;
     }
     setStatus('check');
-    checkAllWords(status);
+    // checkAllWords(status);
   };
-  const words = useSelector(selectWords);
 
   return (
     <Wrapper>
       <TextField
-        onChange={onFilterChange}
+        onChange={handleFilterChange}
+        value={value}
         name="enWord"
         label="Search words"
         variant="standard"
@@ -51,7 +52,7 @@ export default function WordsList({
           </tr>
         </Head>
         <tbody>
-          {words.map(({ id, uaWord, enWord, checked }, index) => (
+          {filteredWords.map(({ id, uaWord, enWord, checked }, index) => (
             <WordsListItem
               key={id}
               id={id}
@@ -59,7 +60,7 @@ export default function WordsList({
               enWord={enWord}
               checked={checked}
               index={index}
-              toggleChecked={toggleChecked}
+              // toggleChecked={toggleChecked}
             />
           ))}
         </tbody>

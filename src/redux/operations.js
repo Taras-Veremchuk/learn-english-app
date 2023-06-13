@@ -36,3 +36,14 @@ export const editWord = createAsyncThunk(
     }
   }
 );
+export const addWord = createAsyncThunk(
+  'words/addWord',
+  async (word, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post(`/words`, word);
+      return data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);

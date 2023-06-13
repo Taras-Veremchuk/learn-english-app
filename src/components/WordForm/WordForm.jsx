@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import { nanoid } from 'nanoid';
+import { useDispatch } from 'react-redux';
+import { addWord } from 'redux/operations';
 
-export default function WordForm({ addWord }) {
+export default function WordForm() {
   const [uaWord, setUaWord] = useState('');
   const [enWord, setEnWord] = useState('');
-
+  const dispatch = useDispatch();
   const reset = () => {
     setUaWord('');
     setEnWord('');
@@ -15,13 +16,11 @@ export default function WordForm({ addWord }) {
   const onSubmit = e => {
     e.preventDefault();
     const word = {
-      id: nanoid(),
       uaWord,
       enWord,
-      checked: false,
+      isChecked: false,
     };
-    console.log(word);
-    addWord(word);
+    dispatch(addWord(word));
     reset();
   };
 

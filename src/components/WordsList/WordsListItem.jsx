@@ -41,7 +41,7 @@ export default function WordsListItem({
         <input
           type="checkbox"
           checked={checked}
-          onChange={() => toggleChecked(id)}
+          // onChange={() => toggleChecked(id)}
         ></input>
       </Td>
       <Td>{index + 1}</Td>

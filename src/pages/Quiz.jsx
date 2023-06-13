@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button } from '@mui/material';
 import { GameComponent } from 'components/GameComponent/GameComponent';
 
-export const Quiz = ({ words, toggleChecked, quizWords }) => {
+export const Quiz = ({ toggleChecked, quizWords }) => {
   const [isStart, setIsStart] = useState(false);
 
   const getRandomIntegetFromInterval = (min, max) => {
@@ -42,7 +42,6 @@ export const Quiz = ({ words, toggleChecked, quizWords }) => {
             // quizWord={
             //   quizWords[getRandomIntegetFromInterval(0, quizWords.length - 1)]
             // }
-            words={words}
             quizWords={quizWords}
             getRandomIntegetFromInterval={getRandomIntegetFromInterval}
             toggleChecked={toggleChecked}

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchWords, deleteWord, editWord } from './operations';
+import { fetchWords, deleteWord, editWord, addWord } from './operations';
 const wordSlice = createSlice({
   name: 'words',
   initialState: {
@@ -46,6 +46,18 @@ const wordSlice = createSlice({
         state.error = null;
       })
       .addCase(editWord.rejected, (state, action) => {
+        state.error = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(addWord.pending, state => {
+        state.isLoading = true;
+      })
+      .addCase(addWord.fulfilled, (state, action) => {
+        state.items.push(action.payload);
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(addWord.rejected, (state, action) => {
         state.error = action.payload;
         state.isLoading = false;
       });

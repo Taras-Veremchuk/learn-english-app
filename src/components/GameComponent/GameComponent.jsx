@@ -1,15 +1,17 @@
 import { Button } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { shuffle } from 'lodash';
+import { useSelector } from 'react-redux';
+import { selectWords } from 'redux/selectors';
 
 export function GameComponent({
-  words,
   quizWords,
   getRandomIntegetFromInterval,
   toggleChecked,
 }) {
   const [allWords, setAllWords] = useState(quizWords);
   const [correctAnswers, setCorrectAnswers] = useState(0);
+  const words = useSelector(selectWords);
 
   const [randomWord, setRandomWord] = useState(
     allWords[getRandomIntegetFromInterval(0, allWords.length - 1)]
